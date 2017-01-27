@@ -54,12 +54,12 @@ function Car(make, model, year) {
   this.make = make;
   this.model = model;
   this.year = year;
+
   this.move = 0;
   this.moveCar = function() {
-    this.move = this.move + 10;
+    return this.move += 10;
   }
 }
-
 var prius = new Car('Toyota', 'Prius', 2011);
 var mustang = new Car('Ford', 'Mustang', 2013);
 
@@ -94,14 +94,14 @@ var getMyUsername = function() {
  return this.username;
 };
 
-var userName = getMyUsername(); //Fix this
+var userName = getMyUsername.call(myUser); //Fix this
 
 //Above you're given an object, and  a function. What will the getUsername function return?
 //Note(no tests)
   //Answer Here
-
+  //The username of whatever object is called/applied with the getUsername function
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
   //Answer Here
-
+  //If ran by itself, it's bound to the global object which is the window. If called with the myUser object, then it's bound to the myUser object.
 //Fix the getMyUsername invocation so that userName will be equal to 'iliketurtles'.
