@@ -2,18 +2,25 @@
   // 1) What is the purpose of the 'this keyword'?
 
       //Answer
+      //The 'this' keyword is used to reference the object in the current context
 
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
+      //a. Default - global scope
+      //b. "new" keyword - used for constructor functions
+      //c. Explicit - used with call or apply and explicitly stated what the context of "this" is
+      //d. Implicit - used with dot object notation and is stated by what is to the left of the dot.
 
   // 3) What is the difference between call and apply?
 
       //Answer
+      //The only difference is in how the parameters are set up. Call takes in arguments one at a time and apply takes in arguments in an array. Other than this they work exactly the same
 
   // 4) What does .bind do?
 
       //Answer
+      //It assigns the context to whatever specific object that is passed in to the bind method
 
 
 //Next Problem
@@ -24,8 +31,17 @@
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
     //Code Here
+    var user = {
+      username: "Joe",
+      email: "josephpimentel11@gmail.com",
+      getUsername: function() {
+        return this.username;
+      }
+    }
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
+
+user.GetUsername;
 
 
 //Next Problem
@@ -33,7 +49,16 @@
 
 // Write the function definitions which will make the following function invocations function properly.
 
-  //Function Invocations Here
+//Function Invocations Here
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.move = 0;
+  this.moveCar = function() {
+    this.move = this.move + 10;
+  }
+}
 
 var prius = new Car('Toyota', 'Prius', 2011);
 var mustang = new Car('Ford', 'Mustang', 2013);
@@ -55,8 +80,8 @@ var getYear = function(){
 
 //Note(no tests)
   //Code Here
-
-
+getYear.call(prius);
+getYear.call(mustang);
 //New Problem
 
 var myUser = {
